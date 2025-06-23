@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" class="light">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#4f46e5" />
+    <meta name="description" content="React application built with Vite" />
+
+    <!-- Favicon (replace with your own) -->
+    <link rel="icon" href="/favicon.ico" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+
+    <title>Investment Dashboard | Vite + React</title>
+
+    <!-- Preload critical CSS -->
+    <link rel="stylesheet" href="/src/index.css" as="style" />
+
+    <!-- Dark mode detection (matches Tailwind config) -->
+    <script>
+        // Initialize theme before page renders
+        const theme = localStorage.getItem('theme') ||
+            (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+        document.documentElement.classList.add(theme);
+    </script>
+</head>
+
+<body class="antialiased text-gray-900 dark:text-gray-100 bg-white dark:bg-gray-900 transition-colors duration-200">
+    <div id="root"></div>
+
+    <!-- Load main script with defer -->
+    <script type="module" src="/src/main.jsx" defer></script>
+
+    <!-- Theme switcher fallback (optional) -->
+    <noscript>
+        <style>
+            body { background-color: white; }
+            @media (prefers-color-scheme: dark) {
+                body { background-color: #111827; }
+            }
+        </style>
+    </noscript>
+</body>
+
+</html>
