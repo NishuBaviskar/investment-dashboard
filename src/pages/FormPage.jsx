@@ -1,9 +1,9 @@
-import { useState } from 'react'
-import { useInvestments } from '../context/InvestmentContext'
 import { motion } from 'framer-motion'
-import Card from '../components/Card'
+import { useState } from 'react'
 import Button from '../components/Button'
+import Card from '../components/Card'
 import FormInput from '../components/FormInput'
+import { useInvestments } from '../context/InvestmentContext'
 import useForm from '../hooks/useForm'
 
 const FormPage = () => {
@@ -57,7 +57,7 @@ const FormPage = () => {
   
   const onSubmit = (formValues) => {
     const newInvestment = {
-      name: formValues.investmentName,
+      name: formValues.name,
       type: formValues.investmentType,
       amount: parseFloat(formValues.investmentAmount),
       date: new Date().toLocaleDateString(),
@@ -66,6 +66,7 @@ const FormPage = () => {
     
     addInvestment(newInvestment);
     setSubmittedData(formValues);
+    navigate('/report', { state: { formData: formValues } });
   };
 
   const calculateRandomReturn = () => {
@@ -106,6 +107,7 @@ const FormPage = () => {
           ) : (
             <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
               <FormInput
+                type = 'text'
                 label="Full Name"
                 name="name"
                 value={values.name}

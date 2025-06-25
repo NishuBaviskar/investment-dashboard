@@ -52,3 +52,30 @@
         /* Removed space */
     }
 }
+
+
+/* Smooth transitions for sidebar */
+
+.sidebar-transition {
+    transition: width 0.3s ease;
+}
+
+
+/* Active nav link style */
+
+.active-nav-link {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+
+/* Print styles for reports */
+
+@media print {
+    .no-print {
+        display: none;
+    }
+    body {
+        background: white;
+        padding: 0;
+    }
+}
